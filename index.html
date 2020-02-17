@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home page</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link
+    
+    <link rel="stylesheet" href="css/slick-theme.css" type="text/css">
+    <link rel="stylesheet" href="css/slick.css" type="text/css"/>
+    <link 
       href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
       rel="stylesheet"
     />
@@ -14,75 +15,98 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
 
   <body>
-    <div class="container-fluid cover">
-      <div class="very-first-row">
+    <div class="cover" id="section1" 
+    data-aos="flip-left">
+      <div class="top-row">
+        <img class="blue-box" src="img/rect.png" />
         <div class="menu">
-          <ul>
-            <a href="#">
-              <li><i class="fa fa-bars" aria-hidden="true"></i></li>
-            </a>
-            <a href="#">
-              <li>CLIENTS</li>
-            </a>
-            <a href="#">
-              <li>NEWS</li>
-            </a>
-          </ul>
+          <i class="fa fa-bars"></i>
+          <a href="#section4">Clients</a>
+          <a href="#section3">News</a>
         </div>
-
-        <div class="logo-container">
+        <div class="logo">
           <img src="img/Logo.png" alt="logo" />
+          <form>
+            <input
+              type="text"
+              class="search-input"
+              name="search-input"
+              placeholder="Search"
+            />
+            <button type="submit" class="btn btn-dark submit-btn">Go</button>
+          </form>
         </div>
-
         <div class="search">
-          <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
-          <i class="fa fa-times" aria-hidden="true"></i>
+            <span
+              ><i class="fa fa-search"></i> <i class="fa fa-times"></i
+            ></span>
+          </form>
         </div>
       </div>
-
-      <div class="intro">
-        <h1>Derek<br />Anderson</h1>
-        <p class="british">British comedian</p>
+      <div id="videoSlider">
+        <video
+        autoplay muted loop 
+        class="embed-responsive embed-responsive-16by9"
+        id="myVid"
+        src="img/vid.mp4"
+      ></video>
+      <div class="play-full">
+        <i class="fa fa-play" id="play-full"></i>
       </div>
-
-      <img class="blue" src="img/rect.png" alt="background" />
-      <video
-        class="embed-responsive embed-responsive-16by9 bg-video"
-        id="vid"
-        controls
-        autoplay
-      >
-        <source src="img/vid.mp4" type="video/mp4" />
-      </video>
+      </div>
+     
+      <div class="enquire">
+        <p>Enquire about Derek</p>
+      </div>
+      <div class="derek-name" id="forVideo2">
+        <h2>Derek</h2>
+        <h2>Anderson</h2>
+        <p>British Comedian</p>
+      </div>
+      <div class="derek-name" id="forVideo1">
+        <h2>Keith</h2>
+        <h2>Willhams</h2>
+        <p>American Poet</p>
+      </div>
+      <div class="derek-name" id="forVideo3">
+        <h2>John</h2>
+        <h2>Doe</h2>
+        <p>Ananomyous person</p>
+      </div>
       <div class="goto">
         <ul>
-          <a>
+          <a href="#section1">
             <li>01</li>
           </a>
-          <a>
-            <li><i class="fa fa-minus" aria-hidden="true"></i> 02</li>
+          <a href="#section2">
+            <li>
+              <span class="selected"
+                ><i class="fa fa-minus" aria-hidden="true"></i> 02</span
+              >
+            </li>
           </a>
-          <a>
+          <a href="#section3">
             <li>03</li>
           </a>
-          <a>
-            <li>04</li>
+          <a href="#section4">
+            <li >04</li>
           </a>
         </ul>
       </div>
       <div class="video-changers">
-        <span><i class="fa fa-arrow-left prev"></i></span> &nbsp;
-        <span><i class="fa fa-arrow-right next"></i></span>
-      </div>
-      <div class="enquire">
-        <p class="enq-text">Enquire about derek</p>
+        <span onClick="leftArrowClick()"><i class="fa fa-arrow-left prev" id="left"></i></span> &nbsp;
+        <span onClick="rightArrowClick()"><i class="fa fa-arrow-right next" id="right"></i></span>
       </div>
     </div>
 
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-5" id="section2" data-aos="fade-up"
+    data-aos-duration="1000">
       <div class="row ml-4 mt-4">
         <div class="col-md-5">
           <img class="imgsix" src="img/Layer 6.png" alt="image" />
@@ -91,23 +115,24 @@
         <div class="col-md-5">
           <div class="heading">
             <ul>
-              <a href="#">
-                <li class="active">profile</li>
+              <a>
+                <li class="active" id="profile">profile</li>
               </a>
-              <a href="#">
-                <li>press</li>
+              <a>
+                <li id="press">press</li>
               </a>
-              <a href="#">
-                <li>awards</li>
+              <a>
+                <li id="awards">awards</li>
               </a>
-              <a href="#">
-                <li>credits</li>
+              <a>
+                <li id="credits">credits</li>
               </a>
             </ul>
           </div>
 
           <div class="profile-middle mt-5">
-            <h1 class="profile-head">Profile.</h1>
+            <div  id="profileDiv">
+              <h1 class="profile-head">Profile.</h1>
             <p class="lead font-weight-bold">
               Derek Anderson is a leading actor comedian and writer.
             </p>
@@ -126,20 +151,103 @@
               amet alias dolorem explicabo a, nulla eos recusandae eveniet atque
               voluptates accusamus.
             </p>
+            </div>
+            
           </div>
+
+          
+
+          <div class="profile-middle mt-5" >
+            <div id="pressDiv">
+              <h1 class="profile-head">Press.</h1>
+              <p class="lead font-weight-bold">
+                Mitalent is the worlds leading press.
+              </p>
+              <p class="font-weight-bold">
+                <i class="fa fa-star" aria-hidden="true"></i> British Award 2020
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                laboriosam aut ea unde praesentium! Eum, rem quibusdam! Nisi
+                soluta expedita pariatur molestias dignissimos, fugiat corporis
+                nam cum unde. Reiciendis, blanditiis.
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Architecto laborum consequatur porro odit illo animi nam at sunt
+                amet alias dolorem explicabo a, nulla eos recusandae eveniet atque
+                voluptates accusamus.
+              </p>
+            </div>
+            
+          </div>
+
+
+          <div class="profile-middle mt-5" >
+            <div id="awardsDiv">
+              <h1 class="profile-head">Awards.</h1>
+              <p class="lead font-weight-bold">
+                Derek Anderson is a leading actor comedian and writer.
+              </p>
+              <p class="font-weight-bold">
+                <i class="fa fa-star" aria-hidden="true"></i> British Award 2020
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                laboriosam aut ea unde praesentium! Eum, rem quibusdam! Nisi
+                soluta expedita pariatur molestias dignissimos, fugiat corporis
+                nam cum unde. Reiciendis, blanditiis.
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Architecto laborum consequatur porro odit illo animi nam at sunt
+                amet alias dolorem explicabo a, nulla eos recusandae eveniet atque
+                voluptates accusamus.
+              </p>
+            </div>
+            
+          </div>
+
+
+          <div class="profile-middle mt-5">
+            <div id="creditsDiv">
+              <h1 class="profile-head">Credits.</h1>
+              <p class="lead font-weight-bold">
+                Derek Anderson is a leading actor comedian and writer.
+              </p>
+              <p class="font-weight-bold">
+                <i class="fa fa-star" aria-hidden="true"></i> British Award 2020
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                laboriosam aut ea unde praesentium! Eum, rem quibusdam! Nisi
+                soluta expedita pariatur molestias dignissimos, fugiat corporis
+                nam cum unde. Reiciendis, blanditiis.
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Architecto laborum consequatur porro odit illo animi nam at sunt
+                amet alias dolorem explicabo a, nulla eos recusandae eveniet atque
+                voluptates accusamus.
+              </p>
+            </div>
+            
+          </div>
+
         </div>
         <div class="col-md-2">
           <div class="icons">
-            <p><i class="fa fa-facebook"></i></p>
-            <p><i class="fa fa-instagram"></i></p>
-            <p><i class="fa fa-youtube"></i></p>
-            <p><i class="fa fa-twitter"></i></p>
+            <p><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></p>
+            <p><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></i></p>
+            <p><a href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></p>
+            <p><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid news-photo">
+    <div class="container-fluid news-photo" id="section3" 
+    data-aos="zoom-in-down">
       <div class="row">
         <div class="col-md-5 firstpart">
           <div class="titlepart">
@@ -161,9 +269,12 @@
 
           <div class="videopart">
             <div class="vid">
-              <video class="vid-vid" controls>
+              <video autoplay muted loop class="vid-vid" id="newsVideo">
                 <source src="img/vid.mp4" type="video/mp4" />
               </video>
+              <div class="big-play">
+                <i class="fa fa-play" id="play-click"></i>
+              </div>
             </div>
             <div class="vid-title">
               <p>5 Reason to keep your beauty saloon Reservation</p>
@@ -182,7 +293,9 @@
       </div>
     </div>
 
-    <div class="container client">
+    <div class="container client" id="section4" 
+    data-aos="fade-up"
+    data-aos-duration="3000">
       <div class="row">
         <div class="col-md-6">
           <h1>Similar Clients</h1>
@@ -195,45 +308,86 @@
       </div>
     </div>
 
-    <div class="container clients-image">
-      <div class="row">
-        <div class="col-md-3 place-img">
-          <img class="cli-img" src="img/Layer 10.png" alt="image" />
+    <section class="slider-area slider" data-aos="flip-up">
+    
+        <div class="slider-wrapper">
+          <img src="img/Layer 10.png" alt="">
+          <div class="clientNameInImage">
+            <h3>
+              Derek Anderson
+            </h3>
+            <p>
+              Comedian
+            </p>
+          </div>
         </div>
-        <div class="col-md-3 place-img">
-          <img class="cli-img" src="img/Layer 11.png" alt="image" />
+        <div class="slider-wrapper">
+          <img src="img/Layer 11.png" alt="">
+          <div class="clientNameInImage">
+            <h3>
+              Keith Ruez
+            </h3>
+            <p>
+              Comedian
+            </p>
+          </div>
         </div>
-        <div class="col-md-3 place-img">
-          <img class="cli-img" src="img/Layer 12.png" alt="image" />
-          <h3 class="cus-name">Keith Ruez</h3>
-          <p class="cus-title">COMEDIAN</p>
+        <div class="slider-wrapper">
+          <img src="img/Layer 12.png" alt="">
+          <div class="clientNameInImage">
+            <h3>
+              Brad Traversy
+            </h3>
+            <p>
+              Web Developer
+            </p>
+          </div>
         </div>
-        <div class="col-md-3 place-img">
-          <img class="cli-img" src="img/Rectangle 10 copy 3.png" alt="image" />
+        <div class="slider-wrapper">
+          <img src="img/Layer 10.png" alt="">
+          <div class="clientNameInImage">
+            <h3>
+              Edwin Diaz
+            </h3>
+            <p>
+              Educator
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-md-12">
-          <p class="cirs">
-            <i class="fa fa-circle cir1"></i>
-            <i class="fa fa-circle cir2" style="font-size:1.4em;"></i>
-            <i class="fa fa-circle cir3"></i>
-            <i class="fa fa-circle cir4"></i>
-          </p>
+        <div class="slider-wrapper">
+          <img src="img/Rectangle 10 copy 3.png" alt="">
+          <div class="clientNameInImage">
+            <h3>
+              Jullian parez
+            </h3>
+            <p>
+              Joker
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
+      
+    </section>
 
-    <div class="container-fluid ">
+    <div class="container-fluid" >
       <div class="section-five">
         <div class="row">
           <div class="col-md-9 left-bar">
             <img src="img/Logo.png" alt="logo" />
           </div>
-          <div class="col-md-3">
-            <p class="sign-up">
+          <div class="col-md-3 dropdown show">
+            <a class="dropdown-toggle text-decoration-none" href="#" role="button" id="dropdownForm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sign-up">
               Sign up our news letter <i class="fa fa-envelope"></i>
-            </p>
+            </span>
+          </a>
+            <div class="sing-up-form dropdown-menu" aria-labelledby="dropdownForm">
+              <form class="input-group">
+                <input type="text" class="form-control" id="sub-input" placeholder="Email">
+                <span class="input-group-btn">
+                  <button class="btn btn-dark" id="sub-btn" type="button">submit</button>
+                </span>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -247,21 +401,28 @@
           </p>
         </div>
         <div class="col-md-4">
-          <p class="text-right icon-icon">
-            <i class="fa fa-facebook place"></i>
-            <i class="fa fa-instagram place"></i>
-            <i class="fa fa-youtube place"></i>
-            <i class="fa fa-twitter place"></i>
+          <p class="icon-icon">
+            <a href="https://www.facebook.com"> <i class="fa fa-facebook place"></i></a>
+            <a href="https://www.instagram.com"><i class="fa fa-instagram place"></i></a>
+            <a href="https://www.youtube.com"><i class="fa fa-youtube place"></i></a>
+            <a href="https://www.twitter.com"><i class="fa fa-twitter place"></i></a>
           </p>
         </div>
       </div>
     </div>
 
-    <script>
-      // document.getElementById('vid').play();
-    </script>
+
+    
+    
     <script src="js/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      //initate animation of aos library
+      AOS.init();
+    </script>;
   </body>
 </html>
